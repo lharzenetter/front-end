@@ -15,14 +15,14 @@
   });
 
   module.exports = {
-    catalogueUrl:  util.format("http://catalogue%s", domain),
-    tagsUrl:       util.format("http://catalogue%s/tags", domain),
-    cartsUrl:      util.format("http://carts%s/carts", domain),
-    ordersUrl:     util.format("http://orders%s", domain),
-    customersUrl:  util.format("http://user%s/customers", domain),
-    addressUrl:    util.format("http://user%s/addresses", domain),
-    cardsUrl:      util.format("http://user%s/cards", domain),
-    loginUrl:      util.format("http://user%s/login", domain),
-    registerUrl:   util.format("http://user%s/register", domain),
+    catalogueUrl:  process.env.CATALOGUE_ENDPOINT || util.format("http://catalogue%s", domain),
+    tagsUrl:       process.env.CATALOGUE_ENDPOINT + '/tags' || util.format("http://catalogue%s/tags", domain),
+    cartsUrl:      process.env.CARTS_ENDPOINT + '/carts' || util.format("http://carts%s/carts", domain),
+    ordersUrl:     process.env.ORDERS_ENDPOINT || util.format("http://orders%s", domain),
+    customersUrl:  process.env.USERS_ENDPOINT + '/customers' || util.format("http://user%s/customers", domain),
+    addressUrl:    process.env.USERS_ENDPOINT + '/addresses' || util.format("http://user%s/addresses", domain),
+    cardsUrl:      process.env.USERS_ENDPOINT + '/cards' || util.format("http://user%s/cards", domain),
+    loginUrl:      process.env.USERS_ENDPOINT + '/login' || util.format("http://user%s/login", domain),
+    registerUrl:   process.env.USERS_ENDPOINT + '/register' || util.format("http://user%s/register", domain),
   };
 }());

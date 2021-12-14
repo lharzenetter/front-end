@@ -9,6 +9,7 @@
 
   app.get("/catalogue/images*", function (req, res, next) {
     var url = endpoints.catalogueUrl + req.url.toString();
+    console.log("using cataloge-url: " + url);
     request.get(url)
         .on('error', function(e) { next(e); })
         .pipe(res);
