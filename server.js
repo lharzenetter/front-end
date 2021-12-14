@@ -7,6 +7,7 @@ var request      = require("request")
   , cookieParser = require("cookie-parser")
   , session      = require("express-session")
   , config       = require("./config")
+  , endpoints    = require("./api/endpoints")
   , helpers      = require("./helpers")
   , cart         = require("./api/cart")
   , catalogue    = require("./api/catalogue")
@@ -55,4 +56,5 @@ app.use(helpers.errorHandler);
 var server = app.listen(process.env.PORT || 8079, function () {
   var port = server.address().port;
   console.log("App now running in %s mode on port %d", app.get("env"), port);
+  console.log("Endpoints: ", endpoints)
 });
